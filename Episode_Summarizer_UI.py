@@ -28,7 +28,8 @@ st.title('Game of Thrones - Episode Summarizer')
 df = pd.read_csv('Season_Episode.csv')
 seasons = df.columns.tolist()
 
-season_radio = st.radio("Select a Season", seasons)
+st.sidebar.title('Pick your Season and Episode')
+season_radio = st.sidebar.radio("Select a Season", seasons)
 selected_season_episode_list = df[season_radio]
 
 def remove_zeros(lst):
@@ -36,9 +37,9 @@ def remove_zeros(lst):
 
 selected_season_episode_list=remove_zeros(selected_season_episode_list)
 
-selected_episode = st.selectbox(f"Select value for {season_radio}", selected_season_episode_list)
+selected_episode = st.sidebar.selectbox(f"Select value for {season_radio}", selected_season_episode_list)
 
-submitted = st.button("Submit")
+submitted = st.sidebar.button("Submit")
 
 #if submitted == TRUE:
     
